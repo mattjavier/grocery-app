@@ -1,6 +1,5 @@
 const router = require('express').Router()
-const { join } = require('path')
-const orm = require('../config/orm.js')
+const grocery = require('../models/grocery')
 
 // GET all groceries
 router.get('/groceries', (req, res) => {
