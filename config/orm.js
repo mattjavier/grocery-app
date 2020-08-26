@@ -29,3 +29,5 @@ orm.delete = (table, where, cb) => {
     cb()
   })
 }
+
+module.exports = orm
