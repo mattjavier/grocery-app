@@ -1,8 +1,6 @@
-DROP DATABASE IF EXISTS grocery_db;
+CREATE DATABASE ridu1la35qvgr5kf;
 
-CREATE DATABASE grocery_db;
-
-USE grocery_db;
+USE ridu1la35qvgr5kf;
 
 CREATE TABLE groceries (
   id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,

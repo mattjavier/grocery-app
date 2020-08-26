@@ -1,4 +1,4 @@
-USE grocery_db;
+USE ridu1la35qvgr5kf;
 
 INSERT INTO groceries (name, quantity, cost, purchased)
 VALUES 

@@ -21,7 +21,7 @@ document.getElementById('addGrocery').addEventListener('click', event => {
             class="btn btn-success purchase">√</button>
         </div>
         <p class="mb-1">Quantity: ${document.getElementById('quantity').value}</p>
-        <small>Price : $${document.getElementById('cost').value}</small>
+        <small>Price: $${document.getElementById('cost').value}</small>
       `
       document.getElementById('notPurchased').append(groceryElem)
       document.getElementById('product').value = ''
@@ -46,7 +46,7 @@ document.addEventListener('click', event => {
          <button class="btn btn-danger remove">X</button>
        </div>
        <p class="mb-1">Quantity: ${event.target.dataset.quantity}</p>
-       <small>Price: ${event.target.dataset.cost}</small>
+       <small>Price: $${event.target.dataset.cost}</small>
       `
         document.getElementById('purchased').append(groceryElem)
         event.target.parentNode.parentNode.remove()
