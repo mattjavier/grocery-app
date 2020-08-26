@@ -1,8 +1,10 @@
 const router = require('express').Router()
-const { join } = require('path')
+const grocery = require('../models/grocery.js')
 
-router.get('/index', (req, res) => {
-  res.render('index')
+router.get('/', (req, res) => {
+  grocery.getAll(groceries => {
+    res.render('index', { groceries })
+  })
 })
 
 module.exports = router
