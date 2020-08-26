@@ -17,8 +17,8 @@ document.getElementById('addGrocery').addEventListener('click', event => {
           <button 
             data-name="${document.getElementById('product').value}"
             data-quantity="${document.getElementById('quantity').value}"
-            data-cost="${document.getElementById('cost').value}
-            class="purchase btn btn-success">√</button>
+            data-cost="${document.getElementById('cost').value}"
+            class="btn btn-success purchase">√</button>
         </div>
         <p class="mb-1">Quantity: ${document.getElementById('quantity').value}</p>
         <small>Price : $${document.getElementById('cost').value}</small>
@@ -38,18 +38,25 @@ document.addEventListener('click', event => {
     })
       .then(() => {
         let groceryElem = document.createElement('li')
-        groceryElem.id = event.target.parentNode.parentNode.id
         groceryElem.className = 'list-group-item'
+        groceryElem.id = event.target.parentNode.parentNode.id
         groceryElem.innerHTML = `
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">${event.target.dataset.name}</h5>
-        </div>
-        <p class="mb-1">Quantity: ${event.target.dataset.quantity}</p>
-        <small>Price : $${event.target.dataset.cost}</small>
-        `
+       <div class="d-flex w-100 justify-content-between">
+         <h5 class="mb-1">${event.target.dataset.name}</h5>
+         <button class="btn btn-danger remove">X</button>
+       </div>
+       <p class="mb-1">Quantity: ${event.target.dataset.quantity}</p>
+       <small>Price: ${event.target.dataset.cost}</small>
+      `
         document.getElementById('purchased').append(groceryElem)
         event.target.parentNode.parentNode.remove()
       })
+      .catch(err => console.error(err))
+  } else if (event.target.classList.contains('remove')) {
+    axios.delete(`/api/groceries/${event.target.parentNode.parentNode.id}`)
+      .then(() => {
+        event.target.parentNode.parentNode.remove()
+      })
       .catch(err => console.log(err))
-  }
+  } 
 })
